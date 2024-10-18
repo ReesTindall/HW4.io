@@ -6,38 +6,15 @@
     <title>Tic Tac Toe - Part 3</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Times New Roman" serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #000000;
         }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #333;
-        }
-
-        .turn-indicator, .win-message {
-            border: 2px solid #333;
-            padding: 10px;
-            width: 300px;
-            text-align: center;
-            margin-bottom: 10px;
-            background-color: #fff;
-        }
-
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 5px;
-        }
-
-        .square {
+         .square {
             width: 100px;
             height: 100px;
             background-color: #fff;
@@ -46,14 +23,30 @@
             align-items: center;
             font-size: 72px;
             font-weight: bold;
-            border: 2px solid #333;
+            border: 2px solid #444;
             cursor: pointer;
         }
-
+        .board {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+        }
         .square:hover {
             background-color: #f0e68c;
         }
-
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+        .turn-indicator, .win-message {
+            border: 2px solid #333;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
         button {
             margin-top: 20px;
             padding: 10px 20px;
@@ -63,7 +56,7 @@
     </style>
 </head>
 <body>
-    <h1>Cool Tic Tac Toe Game</h1>
+    <h1>Rees' Tic Tac Toe Board</h1>
 
     <div class="turn-indicator" id="turnIndicator">
         Turn: X
@@ -89,52 +82,44 @@
         let currentPlayer;
         let gameActive = true;
         
-        // Randomly decide who starts the game
         function chooseStartingPlayer() {
             currentPlayer = Math.random() < 0.5 ? 'X' : 'O';
             document.getElementById("turnIndicator").innerText = `Turn: ${currentPlayer}`;
         }
 
-        // Reset the board and start a new game
         function startNewGame() {
             const squares = document.querySelectorAll('.square');
             squares.forEach(square => {
                 square.innerText = '';
-                square.style.pointerEvents = 'auto'; // Allow clicks again
+                square.style.pointerEvents = 'auto';
             });
             document.getElementById("winMessage").innerText = "Win Condition: N/A";
             gameActive = true;
             chooseStartingPlayer();
         }
 
-        // Event handler for all squares
         function handleSquareClick(event) {
             const square = event.target;
             const squareId = square.id;
             
-            if (!square.innerText && gameActive) { // Only allow click if square is empty
+            if (!square.innerText && gameActive) { 
                 square.innerText = currentPlayer;
                 alert(`You clicked on square ${squareId.slice(2)}`);
                 
-                // Alternate between X and O
                 currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                 document.getElementById("turnIndicator").innerText = `Turn: ${currentPlayer}`;
                 
-                // Disable further clicks on this square
                 square.style.pointerEvents = 'none';
             }
         }
 
-        // Attach event handlers to each square
         const squares = document.querySelectorAll('.square');
         squares.forEach(square => {
             square.addEventListener('click', handleSquareClick);
         });
 
-        // Attach event handler to the Start Game button
         document.getElementById("startGameBtn").addEventListener('click', startNewGame);
 
-        // Start the game with a random player
         chooseStartingPlayer();
     </script>
 </body>
