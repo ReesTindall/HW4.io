@@ -79,10 +79,6 @@
         </script>
     </div>
 
-    <div class="win-message" id="winMessage">
-        Win Condition: N/A
-    </div>
-
     <button id="startGameBtn">Start Game</button>
 
     <script>
@@ -100,7 +96,6 @@
                 square.innerText = '';
                 square.style.pointerEvents = 'auto';
             });
-            document.getElementById("winMessage").innerText = "Win Condition: N/A";
             gameActive = true;
             chooseStartingPlayer();
         }
