@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe - Part 4</title>
+    <title>Rees' Tic Tac Toe Board </title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: "Times New Roman", Times, serif;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-color: #000000;
         }
 
         h1 {
@@ -63,7 +63,7 @@
     </style>
 </head>
 <body>
-    <h1>Cool Tic Tac Toe Game</h1>
+    <h1>Rees' Tic Tac Toe Board</h1>
 
     <div class="turn-indicator" id="turnIndicator">
         Turn: X
@@ -83,14 +83,14 @@
         Win Condition: N/A
     </div>
 
+
     <button id="startGameBtn">Start Game</button>
 
     <script>
         let currentPlayer;
         let gameActive = true;
-        let moves = Array(NUM_SQUARES).fill('-'); // Initialize moves array with hyphens
-        
-        // Winning conditions (rows, columns, diagonals)
+        let moves = Array(NUM_SQUARES).fill('-'); 
+
         const winConditions = [
             [0, 1, 2], // First row
             [3, 4, 5], // Second row
@@ -101,29 +101,25 @@
             [0, 4, 8], // Diagonal top-left to bottom-right
             [2, 4, 6]  // Diagonal top-right to bottom-left
         ];
-
-        // Randomly decide who starts the game
+        
         function chooseStartingPlayer() {
             currentPlayer = Math.random() < 0.5 ? 'X' : 'O';
             document.getElementById("turnIndicator").innerText = `Turn: ${currentPlayer}`;
         }
 
-        // Reset the board and start a new game
+
         function startNewGame() {
             const squares = document.querySelectorAll('.square');
             squares.forEach(square => {
                 square.innerText = '';
-                square.style.pointerEvents = 'auto'; // Allow clicks again
+                square.style.pointerEvents = 'auto';
             });
             document.getElementById("winMessage").innerText = "Win Condition: N/A";
             gameActive = true;
-            moves = Array(NUM_SQUARES).fill('-'); // Reset the moves array
+            moves = Array(NUM_SQUARES).fill('-'); 
             chooseStartingPlayer();
         }
-
-        // Check if there is a win or stalemate
         function checkGameStatus() {
-            // Check for a win condition
             let gameWon = false;
             winConditions.forEach(condition => {
                 const [a, b, c] = condition;
@@ -134,49 +130,40 @@
                     return;
                 }
             });
-
-            // If no win, check for a stalemate
             if (!gameWon && !moves.includes('-')) {
                 document.getElementById("winMessage").innerText = "It's a stalemate!";
                 gameActive = false;
             }
         }
 
-        // Event handler for all squares
         function handleSquareClick(event) {
             const square = event.target;
             const squareId = square.id;
             const index = parseInt(squareId.slice(2), 10);
 
-            if (!square.innerText && gameActive) { // Only allow click if square is empty
+            if (!square.innerText && gameActive) { 
                 square.innerText = currentPlayer;
-                moves[index] = currentPlayer; // Update the moves array
+                moves[index] = currentPlayer; 
                 alert(`You clicked on square ${index}`);
                 
-                // Check for win or stalemate after the move
                 checkGameStatus();
 
                 if (gameActive) {
-                    // Alternate between X and O
                     currentPlayer = currentPlayer === 'X' ? 'O' : 'X';
                     document.getElementById("turnIndicator").innerText = `Turn: ${currentPlayer}`;
                 }
 
-                // Disable further clicks on this square
                 square.style.pointerEvents = 'none';
             }
         }
 
-        // Attach event handlers to each square
         const squares = document.querySelectorAll('.square');
         squares.forEach(square => {
             square.addEventListener('click', handleSquareClick);
         });
 
-        // Attach event handler to the Start Game button
         document.getElementById("startGameBtn").addEventListener('click', startNewGame);
 
-        // Start the game with a random player
         chooseStartingPlayer();
     </script>
 </body>
