@@ -5,48 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic Tac Toe - Part 2</title>
     <style>
-        body {
-            font-family: "Times New Roman" serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #000000;
-        }
-        h1 {
-            font-size: 2.5rem;
-            color: #333;
-        }
-        .turn-indicator, .win-message {
-            border: 2px solid #333;
-            padding: 10px;
-            width: 300px;
-            text-align: center;
-            margin-bottom: 10px;
-            background-color: #fff;
-        }
-        .board {
-            display: grid;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-            gap: 10px;
-        }
-         .square {
-            width: 100px;
-            height: 100px;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 72px;
-            font-weight: bold;
-            border: 2px solid #444;
-            cursor: pointer;
-        }
-        .square:hover {
-            background-color: #f0e68c;
-        }
+body {
+    font-family: "Times New Roman", Times, serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+.turn-indicator, .win-message {
+    border: 2px solid #333;
+    padding: 10px;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 72px;
+    font-weight: bold;
+    border: 2px solid #333;
+    cursor: pointer;
+}
+
+.square:hover {
+    background-color: #f0e68c;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
     </style>
 
 </head>
