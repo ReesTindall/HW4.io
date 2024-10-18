@@ -14,13 +14,7 @@
             margin: 0;
             background-color: #000000;
         }
-        .board {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-        }
-        .square {
+         .square {
             width: 100px;
             height: 100px;
             background-color: #fff;
@@ -29,8 +23,14 @@
             align-items: center;
             font-size: 72px;
             font-weight: bold;
-            border: 2px solid #333;
+            border: 2px solid #444;
             cursor: pointer;
+        }
+        .board {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
         }
         .square:hover {
             background-color: #f0e68c;
