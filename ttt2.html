@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - Part 2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #333;
+        }
+
+        .turn-indicator, .win-message {
+            border: 2px solid #333;
+            padding: 10px;
+            width: 300px;
+            text-align: center;
+            margin-bottom: 10px;
+            background-color: #fff;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 72px;
+            font-weight: bold;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+
+        .square:hover {
+            background-color: #f0e68c;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Cool Tic Tac Toe Game</h1>
+
+    <div class="turn-indicator">
+        Turn: X
+    </div>
+
+    <div class="board">
+        <script>
+            const NUM_SQUARES = 9;
+            for (let i = 0; i < NUM_SQUARES; i++) {
+                const id = "sq" + i;
+                document.write("<div class='square' id='" + id + "'></div>");
+            }
+        </script>
+    </div>
+
+    <div class="win-message">
+        Win Condition: N/A
+    </div>
+
+    <script>
+        // Place an X in row 1, column 3 (which is square 2)
+        document.getElementById('sq2').innerText = 'X';
+
+        // Place an O in row 2, column 1 (which is square 3)
+        document.getElementById('sq3').innerText = 'O';
+    </script>
+</body>
+</html>
