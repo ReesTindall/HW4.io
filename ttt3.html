@@ -3,42 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe - Part 3</title>
+    <title>Rees' Tic Tac Toe Board </title>
     <style>
         body {
-            font-family: "Times New Roman" serif;
+            font-family: "Times New Roman", Times, serif;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
+            justify-content: center;
             height: 100vh;
             margin: 0;
             background-color: #000000;
         }
-         .square {
-            width: 100px;
-            height: 100px;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 72px;
-            font-weight: bold;
-            border: 2px solid #444;
-            cursor: pointer;
-        }
-        .board {
-            display: grid;
-            gap: 10px;
-            grid-template-columns: repeat(3, 100px);
-            grid-template-rows: repeat(3, 100px);
-        }
-        .square:hover {
-            background-color: #f0e68c;
-        }
+
         h1 {
             font-size: 2.5rem;
             color: #333;
         }
+
         .turn-indicator, .win-message {
             border: 2px solid #333;
             padding: 10px;
@@ -47,6 +29,31 @@
             margin-bottom: 10px;
             background-color: #fff;
         }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-template-rows: repeat(3, 100px);
+            gap: 5px;
+        }
+
+        .square {
+            width: 100px;
+            height: 100px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 72px;
+            font-weight: bold;
+            border: 2px solid #333;
+            cursor: pointer;
+        }
+
+        .square:hover {
+            background-color: #f0e68c;
+        }
+
         button {
             margin-top: 20px;
             padding: 10px 20px;
